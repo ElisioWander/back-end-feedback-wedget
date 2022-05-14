@@ -2,19 +2,19 @@ import { MailAdapter, SendMailData } from "../mail-adapter";
 import nodemailer from 'nodemailer'
 
 const transport = nodemailer.createTransport({
-  host: "smtp.office365.com",
-  port: 587,
+  host: "smtp.mailtrap.io",
+  port: 465,
   auth: {
-    user: process.env.USER_EMAIL,
-    pass: process.env.USER_PASSWORD
+    user: '8ba86c4730bc17',
+    pass: '13b5cebf0f6a9a'
   }
 });
 
 export class NodemailerMailAdapter implements MailAdapter {
   async sendMail({subject, body}: SendMailData) {
     await transport.sendMail({
-      from: process.env.USER_EMAIL,
-      to: process.env.RECEIVE_EMAIL,
+      from: 'Equipe Feedback Wedget <fedbackwedget@test.com>',
+      to: 'elisioDev@outlook.com',
       subject,
       html: body,
     })
