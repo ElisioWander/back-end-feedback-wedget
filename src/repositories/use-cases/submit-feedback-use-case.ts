@@ -22,7 +22,7 @@ export class SubmitFeedbackUseCase {
       screenshot
     })
 
-    await this.mailAdapter.sendMail({
+    this.mailAdapter.sendMail({
       subject: 'Novo feedback',
       body: [
         `<div style="font-family: sans-serif"; font-size: 16px; color: #111; >`,
